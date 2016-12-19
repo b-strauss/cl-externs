@@ -1,0 +1,17 @@
+!.placeholder
+
+*~
+*.bak
+*.idea
+*.iml
+*.project
+*.swp
+*.DS_Store
+*.buildpath
+*.cache
+*.sass-cache
+*.session
+*.settings
+*.TemporaryItems
+*.webprj
+*.phpintel
