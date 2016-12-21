@@ -1,4 +1,4 @@
-# cl-externs
+# closure-externs
 externs for the closure-compiler
 
-- issues: https://github.com/b-strauss/cl-externs/issues
+- issues: https://github.com/b-strauss/closure-externs/issues
