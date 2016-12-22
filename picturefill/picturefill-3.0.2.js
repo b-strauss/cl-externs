@@ -1,4 +1,8 @@
 /**
+ * https://github.com/scottjehl/picturefill
+ */
+
+/**
  * @typedef {{
  *   reevaluate: (boolean|undefined),
  *   elements: (Array<HTMLImageElement>|NodeList|undefined)
