@@ -1,7 +1,6 @@
 {
   "name": "externs",
   "version": "1.0.0",
-  "private": true,
   "description": "externs for the closure-compiler",
   "homepage": "https://github.com/b-strauss/externs",
   "bugs": "https://github.com/b-strauss/externs/issues",
