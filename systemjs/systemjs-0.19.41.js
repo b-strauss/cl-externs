@@ -54,41 +54,47 @@ var SystemJSPackageConfig;
 var SystemJSConfig;
 
 /**
+ * @type {SystemJS.constructor}
+ */
+var SystemJS;
+
+/**
  * @constructor
  */
-function SystemJSClass() {
-}
-
-SystemJSClass.prototype.amdDefine = function () {
+SystemJS.constructor = function () {
 };
 
-SystemJSClass.prototype.amdRequire = function () {
+SystemJS.constructor.prototype.amdDefine = function () {
+};
+
+SystemJS.constructor.prototype.amdRequire = function () {
 };
 
 /**
  * @param {SystemJSConfig} config
  */
-SystemJSClass.prototype.config = function (config) {
-};
-
-/**
- * @param {string} moduleName
- */
-SystemJSClass.prototype.delete = function (moduleName) {
-};
-
-/**
- * @param {string} moduleName
- * @returns {SystemJSModule}
- */
-SystemJSClass.prototype.get = function (moduleName) {
+SystemJS.constructor.prototype.config = function (config) {
 };
 
 /**
  * @param {string} moduleName
  * @returns {boolean}
  */
-SystemJSClass.prototype.has = function (moduleName) {
+SystemJS.constructor.prototype.delete = function (moduleName) {
+};
+
+/**
+ * @param {string} moduleName
+ * @returns {SystemJSModule}
+ */
+SystemJS.constructor.prototype.get = function (moduleName) {
+};
+
+/**
+ * @param {string} moduleName
+ * @returns {boolean}
+ */
+SystemJS.constructor.prototype.has = function (moduleName) {
 };
 
 /**
@@ -96,14 +102,14 @@ SystemJSClass.prototype.has = function (moduleName) {
  * @param {string=} opt_normalizedParentName
  * @returns {Promise<SystemJSModule>}
  */
-SystemJSClass.prototype.import = function (moduleName, opt_normalizedParentName) {
+SystemJS.constructor.prototype.import = function (moduleName, opt_normalizedParentName) {
 };
 
 /**
  * @param {*} object
  * @returns {SystemJSModule}
  */
-SystemJSClass.prototype.newModule = function (object) {
+SystemJS.constructor.prototype.newModule = function (object) {
 };
 
 /**
@@ -111,7 +117,7 @@ SystemJSClass.prototype.newModule = function (object) {
  * @param {Array<string>=} opt_deps
  * @param {Function=} opt_declare
  */
-SystemJSClass.prototype.register = function (name, opt_deps, opt_declare) {
+SystemJS.constructor.prototype.register = function (name, opt_deps, opt_declare) {
 };
 
 /**
@@ -120,27 +126,15 @@ SystemJSClass.prototype.register = function (name, opt_deps, opt_declare) {
  * @param {boolean=} opt_executingRequire
  * @param {Function=} opt_declare
  */
-SystemJSClass.prototype.registerDynamic = function (name, opt_deps, opt_executingRequire, opt_declare) {
+SystemJS.constructor.prototype.registerDynamic = function (name, opt_deps, opt_executingRequire, opt_declare) {
 };
 
 /**
  * @param {string} moduleName
  * @param {SystemJSModule} module
  */
-SystemJSClass.prototype.set = function (moduleName, module) {
+SystemJS.constructor.prototype.set = function (moduleName, module) {
 };
 
-SystemJSClass.prototype._nodeRequire = function () {
-};
-
-/**
- * @type {SystemJSClass}
- */
-var SystemJS;
-
-/**
- * @constructor
- * @extends {SystemJSClass}
- */
-SystemJS.constructor = function () {
+SystemJS.constructor.prototype._nodeRequire = function () {
 };
