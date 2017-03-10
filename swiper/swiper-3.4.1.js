@@ -95,10 +95,10 @@ function Swiper(swiperContainer, parameters) {
  *   paginationHide: (boolean|undefined),
  *   paginationClickable: (boolean|undefined),
  *   paginationElement: (string|undefined),
- *   paginationBulletRender: (function(Swiper, number, string)|undefined),
- *   paginationFractionRender: (function(Swiper, string, string)|undefined),
- *   paginationProgressRender: (function(Swiper, string)|undefined),
- *   paginationCustomRender: (function(Swiper, string, string)|undefined),
+ *   paginationBulletRender: (function(Swiper, number, string):string|undefined),
+ *   paginationFractionRender: (function(Swiper, string, string):string|undefined),
+ *   paginationProgressRender: (function(Swiper, string):string|undefined),
+ *   paginationCustomRender: (function(Swiper, string, string):string|undefined),
  *
  *   nextButton: (string|HTMLElement|undefined),
  *   prevButton: (string|HTMLElement|undefined),
@@ -144,7 +144,7 @@ function Swiper(swiperContainer, parameters) {
  *   zoomMin: (number|undefined),
  *   zoomToggle: (boolean|undefined),
  *
- *   control: (Swiper|Array<Swiper>|undefined),
+ *   control: (Swiper|IArrayLike<Swiper>|undefined),
  *   controlInverse: (boolean|undefined),
  *   controlBy: (string|undefined),
  *   normalizeSlideIndex: (boolean|undefined),
@@ -155,37 +155,37 @@ function Swiper(swiperContainer, parameters) {
  *   breakpoints: (Object<number, Swiper.Parameters>|undefined),
  *
  *   runCallbacksOnInit: (boolean|undefined),
- *   onInit: (function(Swiper)|undefined),
- *   onSlideChangeStart: (function(Swiper)|undefined),
- *   onSlideChangeEnd: (function(Swiper)|undefined),
- *   onSlideNextStart: (function(Swiper)|undefined),
- *   onSlideNextEnd: (function(Swiper)|undefined),
- *   onSlidePrevStart: (function(Swiper)|undefined),
- *   onSlidePrevEnd: (function(Swiper)|undefined),
- *   onTransitionStart: (function(Swiper)|undefined),
- *   onTransitionEnd: (function(Swiper)|undefined),
- *   onTouchStart: (function(Swiper, Event)|undefined),
- *   onTouchMove: (function(Swiper, Event)|undefined),
- *   onTouchMoveOpposite: (function(Swiper, Event)|undefined),
- *   onSliderMove: (function(Swiper, Event)|undefined),
- *   onTouchEnd: (function(Swiper, Event)|undefined),
- *   onClick: (function(Swiper, Event)|undefined),
- *   onTap: (function(Swiper, Event)|undefined),
- *   onDoubleTap: (function(Swiper, Event)|undefined),
- *   onImagesReady: (function(Swiper)|undefined),
- *   onProgress: (function(Swiper, number)|undefined),
- *   onReachBeginning: (function(Swiper)|undefined),
- *   onReachEnd: (function(Swiper)|undefined),
- *   onDestroy: (function(Swiper)|undefined),
- *   onSetTranslate: (function(Swiper, number)|undefined),
- *   onSetTransition: (function(Swiper, number)|undefined),
- *   onAutoplay: (function(Swiper)|undefined),
- *   onAutoplayStart: (function(Swiper)|undefined),
- *   onAutoplayStop: (function(Swiper)|undefined),
- *   onLazyImageLoad: (function(Swiper, number, HTMLImageElement)|undefined),
- *   onLazyImageReady: (function(Swiper, number, HTMLImageElement)|undefined),
- *   onPaginationRendered: (function(Swiper, HTMLElement)|undefined),
- *   onScroll: (function(Swiper, Event)|undefined),
+ *   onInit: (function(Swiper):void|undefined),
+ *   onSlideChangeStart: (function(Swiper):void|undefined),
+ *   onSlideChangeEnd: (function(Swiper):void|undefined),
+ *   onSlideNextStart: (function(Swiper):void|undefined),
+ *   onSlideNextEnd: (function(Swiper):void|undefined),
+ *   onSlidePrevStart: (function(Swiper):void|undefined),
+ *   onSlidePrevEnd: (function(Swiper):void|undefined),
+ *   onTransitionStart: (function(Swiper):void|undefined),
+ *   onTransitionEnd: (function(Swiper):void|undefined),
+ *   onTouchStart: (function(Swiper, Event):void|undefined),
+ *   onTouchMove: (function(Swiper, Event):void|undefined),
+ *   onTouchMoveOpposite: (function(Swiper, Event):void|undefined),
+ *   onSliderMove: (function(Swiper, Event):void|undefined),
+ *   onTouchEnd: (function(Swiper, Event):void|undefined),
+ *   onClick: (function(Swiper, Event):void|undefined),
+ *   onTap: (function(Swiper, Event):void|undefined),
+ *   onDoubleTap: (function(Swiper, Event):void|undefined),
+ *   onImagesReady: (function(Swiper):void|undefined),
+ *   onProgress: (function(Swiper, number):void|undefined),
+ *   onReachBeginning: (function(Swiper):void|undefined),
+ *   onReachEnd: (function(Swiper):void|undefined),
+ *   onDestroy: (function(Swiper):void|undefined),
+ *   onSetTranslate: (function(Swiper, number):void|undefined),
+ *   onSetTransition: (function(Swiper, number):void|undefined),
+ *   onAutoplay: (function(Swiper):void|undefined),
+ *   onAutoplayStart: (function(Swiper):void|undefined),
+ *   onAutoplayStop: (function(Swiper):void|undefined),
+ *   onLazyImageLoad: (function(Swiper, number, HTMLImageElement):void|undefined),
+ *   onLazyImageReady: (function(Swiper, number, HTMLImageElement):void|undefined),
+ *   onPaginationRendered: (function(Swiper, HTMLElement):void|undefined),
+ *   onScroll: (function(Swiper, Event):void|undefined),
  *
  *   containerModifierClass: (string|undefined),
  *   slideClass: (string|undefined),
@@ -260,32 +260,32 @@ Swiper.FlipParameters;
 Swiper.prototype.params;
 
 /**
- * @type {Array<HTMLElement>}
+ * @type {IArrayLike<HTMLElement>}
  */
 Swiper.prototype.container;
 
 /**
- * @type {Array<HTMLElement>}
+ * @type {IArrayLike<HTMLElement>}
  */
 Swiper.prototype.wrapper;
 
 /**
- * @type {Array<HTMLElement>}
+ * @type {IArrayLike<HTMLElement>}
  */
 Swiper.prototype.slides;
 
 /**
- * @type {Array<HTMLElement>}
+ * @type {IArrayLike<HTMLElement>}
  */
 Swiper.prototype.nextButton;
 
 /**
- * @type {Array<HTMLElement>}
+ * @type {IArrayLike<HTMLElement>}
  */
 Swiper.prototype.prevButton;
 
 /**
- * @type {Array<HTMLElement>}
+ * @type {IArrayLike<HTMLElement>}
  */
 Swiper.prototype.bullets;
 
@@ -368,6 +368,7 @@ Swiper.prototype.clickedSlide;
 /**
  * @param {boolean} runCallbacks
  * @param {number=} opt_speed
+ * @returns {void}
  */
 Swiper.prototype.slideNext = function (runCallbacks, opt_speed) {
 };
@@ -375,6 +376,7 @@ Swiper.prototype.slideNext = function (runCallbacks, opt_speed) {
 /**
  * @param {boolean} runCallbacks
  * @param {number=} opt_speed
+ * @returns {void}
  */
 Swiper.prototype.slidePrev = function (runCallbacks, opt_speed) {
 };
@@ -383,61 +385,86 @@ Swiper.prototype.slidePrev = function (runCallbacks, opt_speed) {
  * @param {number} index
  * @param {number=} opt_speed
  * @param {boolean=} opt_runCallbacks
+ * @returns {void}
  */
 Swiper.prototype.slideTo = function (index, opt_speed, opt_runCallbacks) {
 };
 
 /**
  * @param {boolean=} opt_updateTranslate
+ * @returns {void}
  */
 Swiper.prototype.update = function (opt_updateTranslate) {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.onResize = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.detachEvents = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.attachEvents = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.startAutoplay = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.stopAutoplay = function () {
 };
 
 /**
  * @param {boolean=} opt_deleteInstance
  * @param {boolean=} opt_cleanupStyles
+ * @returns {void}
  */
 Swiper.prototype.destroy = function (opt_deleteInstance, opt_cleanupStyles) {
 };
 
 /**
- * @param {string|HTMLElement|Array<string>|Array<HTMLElement>} slides
+ * @param {string|HTMLElement|IArrayLike<string>|IArrayLike<HTMLElement>} slides
+ * @returns {void}
  */
 Swiper.prototype.appendSlide = function (slides) {
 };
 
 /**
- * @param {string|HTMLElement|Array<string>|Array<HTMLElement>} slides
+ * @param {string|HTMLElement|IArrayLike<string>|IArrayLike<HTMLElement>} slides
+ * @returns {void}
  */
 Swiper.prototype.prependSlide = function (slides) {
 };
 
 /**
- * @param {number|Array<number>} slideIndex
+ * @param {number|IArrayLike<number>} slideIndex
+ * @returns {void}
  */
 Swiper.prototype.removeSlide = function (slideIndex) {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.removeAllSlides = function () {
 };
 
 /**
  * @param {number} translate
+ * @returns {void}
  */
 Swiper.prototype.setWrapperTranslate = function (translate) {
 };
@@ -451,6 +478,7 @@ Swiper.prototype.getWrapperTranslate = function () {
 /**
  * @param {string} callback
  * @param {function(Event)} handler
+ * @returns {void}
  */
 Swiper.prototype.on = function (callback, handler) {
 };
@@ -458,54 +486,98 @@ Swiper.prototype.on = function (callback, handler) {
 /**
  * @param {string} callback
  * @param {function(Event)} handler
+ * @returns {void}
  */
 Swiper.prototype.once = function (callback, handler) {
 };
 
 /**
  * @param {string} callback
+ * @returns {void}
  */
 Swiper.prototype.off = function (callback) {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.lockSwipeToNext = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.unlockSwipeToNext = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.lockSwipeToPrev = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.unlockSwipeToPrev = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.lockSwipes = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.unlockSwipes = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.disableMousewheelControl = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.enableMousewheelControl = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.disableKeyboardControl = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.enableKeyboardControl = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.disableTouchControl = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.enableTouchControl = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.unsetGrabCursor = function () {
 };
 
+/**
+ * @returns {void}
+ */
 Swiper.prototype.setGrabCursor = function () {
 };
