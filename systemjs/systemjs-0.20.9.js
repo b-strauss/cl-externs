@@ -91,7 +91,7 @@ SystemJS.constructor.prototype.getConfig = function () {
  *   delete: function(string): boolean,
  *   keys: function(): Iterator,
  *   values: function(): Iterator,
- *   entries: function(): Iterator,
+ *   entries: function(): Iterator
  * }|Iterator}
  */
 SystemJS.constructor.prototype.registry;
