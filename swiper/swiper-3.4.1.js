@@ -144,7 +144,7 @@ function Swiper(swiperContainer, parameters) {
  *   zoomMin: (number|undefined),
  *   zoomToggle: (boolean|undefined),
  *
- *   control: (Swiper|IArrayLike<Swiper>|undefined),
+ *   control: (Swiper|Array<Swiper>|undefined),
  *   controlInverse: (boolean|undefined),
  *   controlBy: (string|undefined),
  *   normalizeSlideIndex: (boolean|undefined),
@@ -436,21 +436,21 @@ Swiper.prototype.destroy = function (opt_deleteInstance, opt_cleanupStyles) {
 };
 
 /**
- * @param {string|HTMLElement|IArrayLike<string>|IArrayLike<HTMLElement>} slides
+ * @param {string|HTMLElement|Array<string>|Array<HTMLElement>} slides
  * @returns {void}
  */
 Swiper.prototype.appendSlide = function (slides) {
 };
 
 /**
- * @param {string|HTMLElement|IArrayLike<string>|IArrayLike<HTMLElement>} slides
+ * @param {string|HTMLElement|Array<string>|Array<HTMLElement>} slides
  * @returns {void}
  */
 Swiper.prototype.prependSlide = function (slides) {
 };
 
 /**
- * @param {number|IArrayLike<number>} slideIndex
+ * @param {number|Array<number>} slideIndex
  * @returns {void}
  */
 Swiper.prototype.removeSlide = function (slideIndex) {
