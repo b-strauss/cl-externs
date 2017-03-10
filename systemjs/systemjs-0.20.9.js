@@ -73,6 +73,7 @@ SystemJS.constructor.prototype.amdRequire = function () {
 
 /**
  * @param {SystemJS.Config} config
+ * @returns {void}
  */
 SystemJS.constructor.prototype.config = function (config) {
 };
@@ -122,6 +123,7 @@ SystemJS.constructor.prototype.newModule = function (object) {
  * @param {string} name
  * @param {Array<string>=} opt_deps
  * @param {Function=} opt_declare
+ * @returns {void}
  */
 SystemJS.constructor.prototype.register = function (name, opt_deps, opt_declare) {
 };
@@ -131,6 +133,7 @@ SystemJS.constructor.prototype.register = function (name, opt_deps, opt_declare)
  * @param {Array<string>=} opt_deps
  * @param {boolean=} opt_executingRequire
  * @param {Function=} opt_declare
+ * @returns {void}
  */
 SystemJS.constructor.prototype.registerDynamic = function (name, opt_deps, opt_executingRequire, opt_declare) {
 };
