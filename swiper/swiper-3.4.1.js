@@ -3,6 +3,14 @@
  */
 
 /**
+ * @param {HTMLElement|string} swiperContainer
+ * @param {Swiper.Parameters=} parameters
+ * @constructor
+ */
+function Swiper(swiperContainer, parameters) {
+}
+
+/**
  * @typedef {{
  *   initialSlide: (number|undefined),
  *   direction: (string|undefined),
@@ -32,10 +40,10 @@
  *   freeModeSticky: (boolean|undefined),
  *
  *   effect: (string|undefined),
- *   fade: (SwiperFadeParameters|undefined),
- *   cube: (SwiperCubeParameters|undefined),
- *   coverflow: (SwiperCoverflowParameters|undefined),
- *   flip: (SwiperFlipParameters|undefined),
+ *   fade: (Swiper.FadeParameters|undefined),
+ *   cube: (Swiper.CubeParameters|undefined),
+ *   coverflow: (Swiper.CoverflowParameters|undefined),
+ *   flip: (Swiper.FlipParameters|undefined),
  *
  *   parallax: (boolean|undefined),
  *
@@ -144,7 +152,7 @@
  *   observer: (boolean|undefined),
  *   observeParents: (boolean|undefined),
  *
- *   breakpoints: (Object<number, SwiperParameters>|undefined),
+ *   breakpoints: (Object<number, Swiper.Parameters>|undefined),
  *
  *   runCallbacksOnInit: (boolean|undefined),
  *   onInit: (function(Swiper)|undefined),
@@ -208,14 +216,14 @@
  *   notificationClass: (string|undefined)
  * }}
  */
-var SwiperParameters;
+Swiper.Parameters;
 
 /**
  * @typedef {{
  *   crossFade: (boolean|undefined)
  * }}
  */
-var SwiperFadeParameters;
+Swiper.FadeParameters;
 
 /**
  * @typedef {{
@@ -225,8 +233,7 @@ var SwiperFadeParameters;
  *   shadowScale: (number|undefined)
  * }}
  */
-var SwiperCubeParameters;
-
+Swiper.CubeParameters;
 
 /**
  * @typedef {{
@@ -237,7 +244,7 @@ var SwiperCubeParameters;
  *   slideShadows: (boolean|undefined)
  * }}
  */
-var SwiperCoverflowParameters;
+Swiper.CoverflowParameters;
 
 /**
  * @typedef {{
@@ -245,18 +252,10 @@ var SwiperCoverflowParameters;
  *   limitRotation: (boolean|undefined)
  * }}
  */
-var SwiperFlipParameters;
+Swiper.FlipParameters;
 
 /**
- * @param {HTMLElement|string} swiperContainer
- * @param {SwiperParameters=} parameters
- * @constructor
- */
-function Swiper(swiperContainer, parameters) {
-}
-
-/**
- * @type {SwiperParameters}
+ * @type {Swiper.Parameters}
  */
 Swiper.prototype.params;
 

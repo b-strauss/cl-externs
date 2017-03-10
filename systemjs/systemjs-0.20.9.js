@@ -3,9 +3,14 @@
  */
 
 /**
+ * @type {SystemJS.constructor}
+ */
+var SystemJS;
+
+/**
  * @typedef {*}
  */
-var SystemJSModule;
+SystemJS.Module;
 
 /**
  * @typedef {{
@@ -22,7 +27,7 @@ var SystemJSModule;
  *   esModule: (boolean|undefined)
  * }}
  */
-var SystemJSMetaConfig;
+SystemJS.MetaConfig;
 
 /**
  * @typedef {{
@@ -30,10 +35,10 @@ var SystemJSMetaConfig;
  *   format: (string|undefined),
  *   defaultExtension: (string|boolean|undefined),
  *   map: (Object<string, string>|undefined),
- *   meta: (Object<string, SystemJSMetaConfig>|undefined)
+ *   meta: (Object<string, SystemJS.MetaConfig>|undefined)
  * }}
  */
-var SystemJSPackageConfig;
+SystemJS.PackageConfig;
 
 /**
  * @typedef {{
@@ -41,8 +46,8 @@ var SystemJSPackageConfig;
  *   bundles: (Object<string, Array<string>>|undefined),
  *   depCache: (Object<string, Array<string>>|undefined),
  *   map: (Object<string, string>|undefined),
- *   meta: (Object<string, SystemJSMetaConfig>|undefined),
- *   packages: (Object<string, SystemJSPackageConfig>|undefined),
+ *   meta: (Object<string, SystemJS.MetaConfig>|undefined),
+ *   packages: (Object<string, SystemJS.PackageConfig>|undefined),
  *   packageConfigPaths: (Array<string>|undefined),
  *   paths: (Object<string, string>|undefined),
  *   pluginFirst: (boolean|undefined),
@@ -52,12 +57,7 @@ var SystemJSPackageConfig;
  *   wasm: (boolean|undefined)
  * }}
  */
-var SystemJSConfig;
-
-/**
- * @type {SystemJS.constructor}
- */
-var SystemJS;
+SystemJS.Config;
 
 /**
  * @constructor
@@ -72,21 +72,21 @@ SystemJS.constructor.prototype.amdRequire = function () {
 };
 
 /**
- * @param {SystemJSConfig} config
+ * @param {SystemJS.Config} config
  */
 SystemJS.constructor.prototype.config = function (config) {
 };
 
 /**
- * @returns {SystemJSConfig}
+ * @returns {SystemJS.Config}
  */
 SystemJS.constructor.prototype.getConfig = function () {
 };
 
 /**
  * @type {{
- *   set: function(string, SystemJSModule): void,
- *   get: function(string): ?SystemJSModule,
+ *   set: function(string, SystemJS.Module): void,
+ *   get: function(string): ?SystemJS.Module,
  *   has: function(string): boolean,
  *   delete: function(string): boolean,
  *   keys: function(): Iterator,
@@ -99,7 +99,7 @@ SystemJS.constructor.prototype.registry;
 /**
  * @param {string} moduleName
  * @param {string=} opt_normalizedParentName
- * @returns {Promise<SystemJSModule>}
+ * @returns {Promise<SystemJS.Module>}
  */
 SystemJS.constructor.prototype.import = function (moduleName, opt_normalizedParentName) {
 };
@@ -113,7 +113,7 @@ SystemJS.constructor.prototype.isModule = function (object) {
 
 /**
  * @param {*} object
- * @returns {SystemJSModule}
+ * @returns {SystemJS.Module}
  */
 SystemJS.constructor.prototype.newModule = function (object) {
 };
