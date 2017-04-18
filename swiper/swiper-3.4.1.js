@@ -2,13 +2,7 @@
  * https://github.com/nolimits4web/Swiper
  */
 
-/**
- * @param {HTMLElement|string} swiperContainer
- * @param {Swiper.Parameters=} parameters
- * @constructor
- */
-function Swiper(swiperContainer, parameters) {
-}
+var swiperExtern;
 
 /**
  * @typedef {{
@@ -40,10 +34,10 @@ function Swiper(swiperContainer, parameters) {
  *   freeModeSticky: (boolean|undefined),
  *
  *   effect: (string|undefined),
- *   fade: (Swiper.FadeParameters|undefined),
- *   cube: (Swiper.CubeParameters|undefined),
- *   coverflow: (Swiper.CoverflowParameters|undefined),
- *   flip: (Swiper.FlipParameters|undefined),
+ *   fade: (swiperExtern.FadeParameters|undefined),
+ *   cube: (swiperExtern.CubeParameters|undefined),
+ *   coverflow: (swiperExtern.CoverflowParameters|undefined),
+ *   flip: (swiperExtern.FlipParameters|undefined),
  *
  *   parallax: (boolean|undefined),
  *
@@ -152,7 +146,7 @@ function Swiper(swiperContainer, parameters) {
  *   observer: (boolean|undefined),
  *   observeParents: (boolean|undefined),
  *
- *   breakpoints: (Object<number, Swiper.Parameters>|undefined),
+ *   breakpoints: (Object<number, swiperExtern.Parameters>|undefined),
  *
  *   runCallbacksOnInit: (boolean|undefined),
  *   onInit: (function(Swiper):void|undefined),
@@ -216,14 +210,14 @@ function Swiper(swiperContainer, parameters) {
  *   notificationClass: (string|undefined)
  * }}
  */
-Swiper.Parameters;
+swiperExtern.Parameters;
 
 /**
  * @typedef {{
  *   crossFade: (boolean|undefined)
  * }}
  */
-Swiper.FadeParameters;
+swiperExtern.FadeParameters;
 
 /**
  * @typedef {{
@@ -233,7 +227,7 @@ Swiper.FadeParameters;
  *   shadowScale: (number|undefined)
  * }}
  */
-Swiper.CubeParameters;
+swiperExtern.CubeParameters;
 
 /**
  * @typedef {{
@@ -244,7 +238,7 @@ Swiper.CubeParameters;
  *   slideShadows: (boolean|undefined)
  * }}
  */
-Swiper.CoverflowParameters;
+swiperExtern.CoverflowParameters;
 
 /**
  * @typedef {{
@@ -252,10 +246,18 @@ Swiper.CoverflowParameters;
  *   limitRotation: (boolean|undefined)
  * }}
  */
-Swiper.FlipParameters;
+swiperExtern.FlipParameters;
 
 /**
- * @type {Swiper.Parameters}
+ * @param {HTMLElement|string} swiperContainer
+ * @param {swiperExtern.Parameters=} parameters
+ * @constructor
+ */
+function Swiper(swiperContainer, parameters) {
+}
+
+/**
+ * @type {swiperExtern.Parameters}
  */
 Swiper.prototype.params;
 

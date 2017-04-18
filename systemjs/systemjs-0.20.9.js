@@ -2,15 +2,12 @@
  * https://github.com/systemjs/systemjs
  */
 
-/**
- * @type {SystemJS.constructor}
- */
-var SystemJS;
+var SystemJSExtern;
 
 /**
  * @typedef {*}
  */
-SystemJS.Module;
+SystemJSExtern.Module;
 
 /**
  * @typedef {{
@@ -27,7 +24,7 @@ SystemJS.Module;
  *   esModule: (boolean|undefined)
  * }}
  */
-SystemJS.MetaConfig;
+SystemJSExtern.MetaConfig;
 
 /**
  * @typedef {{
@@ -35,10 +32,10 @@ SystemJS.MetaConfig;
  *   format: (string|undefined),
  *   defaultExtension: (string|boolean|undefined),
  *   map: (Object<string, string>|undefined),
- *   meta: (Object<string, SystemJS.MetaConfig>|undefined)
+ *   meta: (Object<string, SystemJSExtern.MetaConfig>|undefined)
  * }}
  */
-SystemJS.PackageConfig;
+SystemJSExtern.PackageConfig;
 
 /**
  * @typedef {{
@@ -46,8 +43,8 @@ SystemJS.PackageConfig;
  *   bundles: (Object<string, Array<string>>|undefined),
  *   depCache: (Object<string, Array<string>>|undefined),
  *   map: (Object<string, string>|undefined),
- *   meta: (Object<string, SystemJS.MetaConfig>|undefined),
- *   packages: (Object<string, SystemJS.PackageConfig>|undefined),
+ *   meta: (Object<string, SystemJSExtern.MetaConfig>|undefined),
+ *   packages: (Object<string, SystemJSExtern.PackageConfig>|undefined),
  *   packageConfigPaths: (Array<string>|undefined),
  *   paths: (Object<string, string>|undefined),
  *   pluginFirst: (boolean|undefined),
@@ -57,7 +54,12 @@ SystemJS.PackageConfig;
  *   wasm: (boolean|undefined)
  * }}
  */
-SystemJS.Config;
+SystemJSExtern.Config;
+
+/**
+ * @type {SystemJS.constructor}
+ */
+var SystemJS;
 
 /**
  * @constructor
@@ -72,22 +74,22 @@ SystemJS.constructor.prototype.amdRequire = function () {
 };
 
 /**
- * @param {SystemJS.Config} config
+ * @param {SystemJSExtern.Config} config
  * @returns {void}
  */
 SystemJS.constructor.prototype.config = function (config) {
 };
 
 /**
- * @returns {SystemJS.Config}
+ * @returns {SystemJSExtern.Config}
  */
 SystemJS.constructor.prototype.getConfig = function () {
 };
 
 /**
  * @type {{
- *   set: function(string, SystemJS.Module): void,
- *   get: function(string): ?SystemJS.Module,
+ *   set: function(string, SystemJSExtern.Module): void,
+ *   get: function(string): ?SystemJSExtern.Module,
  *   has: function(string): boolean,
  *   delete: function(string): boolean,
  *   keys: function(): Iterator,
@@ -100,7 +102,7 @@ SystemJS.constructor.prototype.registry;
 /**
  * @param {string} moduleName
  * @param {string=} opt_normalizedParentName
- * @returns {Promise<SystemJS.Module>}
+ * @returns {Promise<SystemJSExtern.Module>}
  */
 SystemJS.constructor.prototype.import = function (moduleName, opt_normalizedParentName) {
 };
@@ -114,7 +116,7 @@ SystemJS.constructor.prototype.isModule = function (object) {
 
 /**
  * @param {*} object
- * @returns {SystemJS.Module}
+ * @returns {SystemJSExtern.Module}
  */
 SystemJS.constructor.prototype.newModule = function (object) {
 };

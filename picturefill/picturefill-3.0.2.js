@@ -2,17 +2,19 @@
  * https://github.com/scottjehl/picturefill
  */
 
-/**
- * @param {picturefill.PicturefillOptions=} opt_options
- * @returns {void}
- */
-function picturefill(opt_options) {
-}
+var picturefillExtern;
 
 /**
  * @typedef {{
  *   reevaluate: (boolean|undefined),
- *   elements: (Array<HTMLImageElement>|NodeList|undefined)
+ *   elements: (IArrayLike<HTMLImageElement>|NodeList|undefined)
  * }}
  */
-picturefill.PicturefillOptions;
+picturefillExtern.PicturefillOptions;
+
+/**
+ * @param {picturefillExtern.PicturefillOptions=} opt_options
+ * @returns {void}
+ */
+function picturefill(opt_options) {
+}
