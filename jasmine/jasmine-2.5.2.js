@@ -188,66 +188,181 @@ jasmine.errors = {};
 jasmine.errors.ExpectationFailed = function () {};
 jasmine.errors.ExpectationFailed.prototype.stack;
 
+jasmine.TreeProcessor = function (attrs) {};
+jasmine.TreeProcessor.prototype.execute = function (done) {};
+jasmine.TreeProcessor.prototype.processTree = function () {};
 
+jasmineExtern.Trace;
 
+jasmine.PrettyPrinter = function () {};
+jasmine.PrettyPrinter.prototype.format = function (value) {};
+jasmine.PrettyPrinter.prototype.iterateObject = function (obj, fn) {};
+jasmine.PrettyPrinter.prototype.emitScalar = function (value) {};
+jasmine.PrettyPrinter.prototype.emitString = function (value) {};
+jasmine.PrettyPrinter.prototype.emitArray = function (array) {};
+jasmine.PrettyPrinter.prototype.emitObject = function (obj) {};
+jasmine.PrettyPrinter.prototype.append = function (value) {};
 
+jasmine.StringPrettyPrinter = function () {};
 
+jasmine.Queue = function (env) {};
+jasmine.Queue.prototype.env;
+jasmine.Queue.prototype.ensured;
+jasmine.Queue.prototype.blocks;
+jasmine.Queue.prototype.running;
+jasmine.Queue.prototype.index;
+jasmine.Queue.prototype.offset;
+jasmine.Queue.prototype.abort;
+jasmine.Queue.prototype.addBefore = function (block, opt_ensure) {};
+jasmine.Queue.prototype.add = function (block, opt_ensure) {};
+jasmine.Queue.prototype.insertNext = function (block, opt_ensure) {};
+jasmine.Queue.prototype.start = function (opt_onComplete) {};
+jasmine.Queue.prototype.isRunning = function () {};
+jasmine.Queue.prototype.next_ = function () {};
+jasmine.Queue.prototype.results = function () {};
 
+jasmine.Matchers = function (env, actual, spec, opt_isNot) {};
+jasmine.Matchers.prototype.env;
+jasmine.Matchers.prototype.actual;
+jasmine.Matchers.prototype.spec;
+jasmine.Matchers.prototype.isNot;
+jasmine.Matchers.prototype.not;
+jasmine.Matchers.prototype.Any;
+jasmine.Matchers.prototype.message = function () {};
+jasmine.Matchers.prototype.toBe = function (expected, opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toEqual = function (expected, opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toMatch = function (expected, opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toBeDefined = function (opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toBeUndefined = function (opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toBeNull = function (opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toBeNaN = function () {};
+jasmine.Matchers.prototype.toBeTruthy = function (opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toBeFalsy = function (opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toHaveBeenCalled = function () {};
+jasmine.Matchers.prototype.toHaveBeenCalledWith = function (params) {};
+jasmine.Matchers.prototype.toHaveBeenCalledTimes = function (expected) {};
+jasmine.Matchers.prototype.toContain = function (expected, opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toBeLessThan = function (expected, opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toBeLessThanOrEqual = function (expected, opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toBeGreaterThan = function (expected, opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toBeGreaterThanOrEqual = function (expected, opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toBeCloseTo = function (expected, opt_precision, opt_expectationFailOutput) {};
+jasmine.Matchers.prototype.toThrow = function (expected) {};
+jasmine.Matchers.prototype.toThrowError = function (opt_expected, opt_message) {};
 
+jasmine.ArrayLikeMatchers = function (env, actual, spec, opt_isNot) {};
+jasmine.ArrayLikeMatchers.prototype.not;
+jasmine.ArrayLikeMatchers.prototype.toBe = function (expected, opt_expectationFailOutput) {};
+jasmine.ArrayLikeMatchers.prototype.toEqual = function (expected, opt_expectationFailOutput) {};
+jasmine.ArrayLikeMatchers.prototype.toContain = function (expected, opt_expectationFailOutput) {};
 
+jasmineExtern.Reporter = function () {};
+jasmineExtern.Reporter.prototype.reportRunnerStarting = function (runner) {};
+jasmineExtern.Reporter.prototype.reportRunnerResults = function (runner) {};
+jasmineExtern.Reporter.prototype.reportSuiteResults = function (suite) {};
+jasmineExtern.Reporter.prototype.reportSpecStarting = function (spec) {};
+jasmineExtern.Reporter.prototype.reportSpecResults = function (spec) {};
+jasmineExtern.Reporter.prototype.log = function (str) {};
 
+jasmineExtern.MultiReporter = function () {};
+jasmineExtern.MultiReporter.prototype.addReporter = function (reporter) {};
 
+jasmineExtern.SuiteInfo;
 
+jasmineExtern.CustomReportExpectation = function () {};
+jasmineExtern.CustomReportExpectation.prototype.matcherName;
+jasmineExtern.CustomReportExpectation.prototype.message;
+jasmineExtern.CustomReportExpectation.prototype.passed;
+jasmineExtern.CustomReportExpectation.prototype.stack;
 
+jasmineExtern.FailedExpectation = function () {};
+jasmineExtern.FailedExpectation.prototype.actual;
+jasmineExtern.FailedExpectation.prototype.expected;
 
+jasmineExtern.PassedExpectation = function () {};
 
+jasmineExtern.CustomReporterResult;
 
+jasmineExtern.RunDetails;
 
+jasmineExtern.CustomReporter;
 
+jasmine.Runner = function (env) {};
+jasmine.Runner.prototype.execute = function () {};
+jasmine.Runner.prototype.beforeEach = function (beforeEachFunction) {};
+jasmine.Runner.prototype.afterEach = function (afterEachFunction) {};
+jasmine.Runner.prototype.beforeAll = function (beforeAllFunction) {};
+jasmine.Runner.prototype.afterAll = function (afterAllFunction) {};
+jasmine.Runner.prototype.finishCallback = function () {};
+jasmine.Runner.prototype.addSuite = function (suite) {};
+jasmine.Runner.prototype.add = function (block) {};
+jasmine.Runner.prototype.specs = function () {};
+jasmine.Runner.prototype.suites = function () {};
+jasmine.Runner.prototype.topLevelSuites = function () {};
+jasmine.Runner.prototype.results = function () {};
 
+jasmineExtern.SpecFunction;
 
+jasmineExtern.SuiteOrSpec;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-jasmineExtern.Util;
-jasmineExtern.Util.prototype.inherit = function (childClass, parentClass) {};
-jasmineExtern.Util.prototype.formatException = function (e) {};
-jasmineExtern.Util.prototype.htmlEscape = function (str) {};
-jasmineExtern.Util.prototype.argsToArray = function (args) {};
-jasmineExtern.Util.prototype.extend = function (destination, source) {};
+jasmine.Spec = function (env, suite, description) {};
+jasmine.Spec.prototype.suite;
+jasmine.Spec.prototype.afterCallbacks;
+jasmine.Spec.prototype.spies_;
+jasmine.Spec.prototype.results_;
+jasmine.Spec.prototype.matchersClass;
+jasmine.Spec.prototype.throwOnExpectationFailure;
+jasmine.Spec.prototype.getFullName = function () {};
+jasmine.Spec.prototype.results = function () {};
+jasmine.Spec.prototype.log = function (arguments) {};
+jasmine.Spec.prototype.runs = function (func) {};
+jasmine.Spec.prototype.addToQueue = function (block) {};
+jasmine.Spec.prototype.addMatcherResult = function (result) {};
+jasmine.Spec.prototype.getResult = function () {};
+jasmine.Spec.prototype.expect = function (actual) {};
+jasmine.Spec.prototype.waits = function (timeout) {};
+jasmine.Spec.prototype.waitsFor = function (latchFunction, opt_timeoutMessage, opt_timeout) {};
+jasmine.Spec.prototype.fail = function (opt_e) {};
+jasmine.Spec.prototype.getMatchersClass_ = function (opt_e) {};
+jasmine.Spec.prototype.addMatchers = function (matchersPrototype) {};
+jasmine.Spec.prototype.finishCallback = function () {};
+jasmine.Spec.prototype.finish = function (opt_onComplete) {};
+jasmine.Spec.prototype.after = function (doAfter) {};
+jasmine.Spec.prototype.execute = function (opt_onComplete, opt_enabled) {};
+jasmine.Spec.prototype.addBeforesAndAftersToQueue = function () {};
+jasmine.Spec.prototype.explodes = function () {};
+jasmine.Spec.prototype.spyOn = function (obj, methodName, ignoreMethodDoesntExist) {};
+jasmine.Spec.prototype.spyOnProperty = function (object, property, accessType) {};
+jasmine.Spec.prototype.removeAllSpies = function () {};
 
 jasmineExtern.XSpec;
 jasmineExtern.XSpec.prototype.id;
 jasmineExtern.XSpec.prototype.runs = function () {};
 
+jasmine.Suite = function (env, description, specDefinitions, parentSuite) {};
+jasmine.Suite.prototype.parentSuite;
+jasmine.Suite.prototype.getFullName = function () {};
+jasmine.Suite.prototype.finish = function (opt_onComplete) {};
+jasmine.Suite.prototype.beforeEach = function (beforeEachFunction) {};
+jasmine.Suite.prototype.afterEach = function (afterEachFunction) {};
+jasmine.Suite.prototype.beforeAll = function (beforeAllFunction) {};
+jasmine.Suite.prototype.afterAll = function (afterAllFunction) {};
+jasmine.Suite.prototype.results = function () {};
+jasmine.Suite.prototype.add = function (suiteOrSpec) {};
+jasmine.Suite.prototype.specs = function () {};
+jasmine.Suite.prototype.suites = function () {};
+jasmine.Suite.prototype.children = function () {};
+jasmine.Suite.prototype.execute = function (opt_onComplete) {};
+
 jasmineExtern.XSuite;
 jasmineExtern.XSuite.prototype.execute = function () {};
+
+jasmine.Spy = function () {};
+jasmine.Spy.prototype.identity;
+jasmine.Spy.prototype.and;
+jasmine.Spy.prototype.calls;
+jasmine.Spy.prototype.mostRecentCall;
+jasmine.Spy.prototype.argsForCall;
 
 jasmineExtern.SpyAnd;
 jasmineExtern.SpyAnd.prototype.callThrough = function () {};
@@ -272,9 +387,28 @@ jasmineExtern.CallInfo.prototype.object;
 jasmineExtern.CallInfo.prototype.args;
 jasmineExtern.CallInfo.prototype.returnValue;
 
-jasmine.Spy = function () {};
-jasmine.Spy.prototype.identity;
-jasmine.Spy.prototype.and;
-jasmine.Spy.prototype.calls;
-jasmine.Spy.prototype.mostRecentCall;
-jasmine.Spy.prototype.argsForCall;
+jasmineExtern.Util;
+jasmineExtern.Util.prototype.inherit = function (childClass, parentClass) {};
+jasmineExtern.Util.prototype.formatException = function (e) {};
+jasmineExtern.Util.prototype.htmlEscape = function (str) {};
+jasmineExtern.Util.prototype.argsToArray = function (args) {};
+jasmineExtern.Util.prototype.extend = function (destination, source) {};
+
+jasmine.JsApiReporter = function () {};
+jasmine.JsApiReporter.prototype.started;
+jasmine.JsApiReporter.prototype.finished;
+jasmine.JsApiReporter.prototype.result;
+jasmine.JsApiReporter.prototype.messages;
+jasmine.JsApiReporter.prototype.runDetails;
+jasmine.JsApiReporter.prototype.suites = function () {};
+jasmine.JsApiReporter.prototype.summarize_ = function (suiteOrSpec) {};
+jasmine.JsApiReporter.prototype.results = function () {};
+jasmine.JsApiReporter.prototype.resultsForSpec = function (specId) {};
+jasmine.JsApiReporter.prototype.log = function (str) {};
+jasmine.JsApiReporter.prototype.resultsForSpecs = function (specIds) {};
+jasmine.JsApiReporter.prototype.summarizeResult_ = function (result) {};
+
+jasmine.HtmlReporter;
+jasmine.HtmlSpecFilter;
+jasmine.DEFAULT_TIMEOUT_INTERVAL;
+jasmine.MAX_PRETTY_PRINT_DEPTH;
