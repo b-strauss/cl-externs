@@ -7,35 +7,142 @@
 var jasmineExtern = {};
 var jasmine = {};
 
+/**
+ * @param {string} description
+ * @param {function():void} specDefinitions
+ * @returns {void}
+ */
 function describe(description, specDefinitions) {}
+
+/**
+ * @param {string} description
+ * @param {function():void} specDefinitions
+ * @returns {void}
+ */
 function fdescribe(description, specDefinitions) {}
+
+/**
+ * @param {string} description
+ * @param {function():void} specDefinitions
+ * @returns {void}
+ */
 function xdescribe(description, specDefinitions) {}
 
+/**
+ * @param {string} expectation
+ * @param {function(jasmineExtern.DoneFn):void=} opt_assertion
+ * @param {number=} opt_timeout
+ * @returns {void}
+ */
 function it(expectation, opt_assertion, opt_timeout) {}
+
+/**
+ * @param {string} expectation
+ * @param {function(jasmineExtern.DoneFn):void=} opt_assertion
+ * @param {number=} opt_timeout
+ * @returns {void}
+ */
 function fit(expectation, opt_assertion, opt_timeout) {}
+
+/**
+ * @param {string} expectation
+ * @param {function(jasmineExtern.DoneFn):void=} opt_assertion
+ * @param {number=} opt_timeout
+ * @returns {void}
+ */
 function xit(expectation, opt_assertion, opt_timeout) {}
 
+/**
+ * @param {string=} opt_reason
+ * @returns {void}
+ */
 function pending(opt_reason) {}
 
+/**
+ * @param {function(jasmineExtern.DoneFn):void} action
+ * @param {number=} opt_timeout
+ * @returns {void}
+ */
 function beforeEach(action, opt_timeout) {}
+
+/**
+ * @param {function(jasmineExtern.DoneFn):void} action
+ * @param {number=} opt_timeout
+ * @returns {void}
+ */
 function afterEach(action, opt_timeout) {}
 
+/**
+ * @param {function(jasmineExtern.DoneFn):void} action
+ * @param {number=} opt_timeout
+ * @returns {void}
+ */
 function beforeAll(action, opt_timeout) {}
+
+/**
+ * @param {function(jasmineExtern.DoneFn):void} action
+ * @param {number=} opt_timeout
+ * @returns {void}
+ */
 function afterAll(action, opt_timeout) {}
 
+/**
+ * @param {*} actual
+ * @returns {jasmine.Matchers}
+ */
 function expect(actual) {}
 
+/**
+ * @param {*=} opt_e
+ * @returns {void}
+ */
 function fail(opt_e) {}
 
+/**
+ * @interface
+ * @extends {Function}
+ */
 jasmineExtern.DoneFn;
+
+/**
+ * @param {(Error|string)=} opt_message
+ * @returns {void}
+ */
 jasmineExtern.DoneFn.prototype.fail = function (opt_message) {};
 
+/**
+ * @param {*} object
+ * @param {string} method
+ * @returns {jasmineExtern.Spy}
+ */
 function spyOn(object, method) {}
 
+/**
+ * @param {*} object
+ * @param {string} property
+ * @param {string} accessType
+ * @returns {jasmineExtern.Spy}
+ */
 function spyOnProperty(object, property, accessType) {}
 
+/**
+ * @param {Function} asyncMethod
+ * @returns {void}
+ */
 function runs(asyncMethod) {}
+
+/**
+ * @param {function():boolean} latchMethod
+ * @param {string=} opt_failureMessage
+ * @param {number=} opt_timeout
+ * @returns {void}
+ */
 function waitsFor(latchMethod, opt_failureMessage, opt_timeout) {}
+
+/**
+ * @param {number=} opt_timeout
+ * @returns {void}
+ */
 function waits(opt_timeout) {}
 
 jasmine.clock = function () {};
@@ -357,12 +464,12 @@ jasmine.Suite.prototype.execute = function (opt_onComplete) {};
 jasmineExtern.XSuite;
 jasmineExtern.XSuite.prototype.execute = function () {};
 
-jasmine.Spy = function () {};
-jasmine.Spy.prototype.identity;
-jasmine.Spy.prototype.and;
-jasmine.Spy.prototype.calls;
-jasmine.Spy.prototype.mostRecentCall;
-jasmine.Spy.prototype.argsForCall;
+jasmineExtern.Spy = function () {};
+jasmineExtern.Spy.prototype.identity;
+jasmineExtern.Spy.prototype.and;
+jasmineExtern.Spy.prototype.calls;
+jasmineExtern.Spy.prototype.mostRecentCall;
+jasmineExtern.Spy.prototype.argsForCall;
 
 jasmineExtern.SpyAnd;
 jasmineExtern.SpyAnd.prototype.callThrough = function () {};
