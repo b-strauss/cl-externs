@@ -145,20 +145,57 @@ function waitsFor(latchMethod, opt_failureMessage, opt_timeout) {}
  */
 function waits(opt_timeout) {}
 
+/**
+ * @returns {jasmineExtern.Clock}
+ */
 jasmine.clock = function () {};
 
+/**
+ * @param {*} aclass
+ * @returns {jasmine.Any}
+ */
 jasmine.any = function (aclass) {};
 
+/**
+ * @returns {jasmine.Any}
+ */
 jasmine.anything = function () {};
 
+/**
+ * @param {Array} sample
+ * @returns {jasmine.ArrayContaining}
+ */
 jasmine.arrayContaining = function (sample) {};
+
+/**
+ * @param {*} sample
+ * @returns {jasmine.ObjectContaining}
+ */
 jasmine.objectContaining = function (sample) {};
+
+/**
+ * @param {string} name
+ * @param {Function=} opt_originalFn
+ * @returns {jasmineExtern.Spy}
+ */
 jasmine.createSpy = function (name, opt_originalFn) {};
 
+/**
+ * @param {string} baseName
+ * @param {Array} methodNames
+ * @returns {*}
+ */
 jasmine.createSpyObj = function (baseName, methodNames) {};
 
+/**
+ * @param {*} value
+ * @returns {string}
+ */
 jasmine.pp = function (value) {};
 
+/**
+ * @returns {jasmineExtern.Env}
+ */
 jasmine.getEnv = function () {};
 
 jasmine.addCustomEqualityTester = function (equalityTester) {};
@@ -188,7 +225,10 @@ jasmine.WaitsBlock = function (env, timeout, spec) {};
 
 jasmine.WaitsForBlock = function (env, timeout, latchFunction, message, spec) {};
 
-jasmineExtern.Clock;
+/**
+ * @interface
+ */
+jasmineExtern.Clock = function () {};
 jasmineExtern.Clock.prototype.install = function () {};
 jasmineExtern.Clock.prototype.uninstall = function () {};
 jasmineExtern.Clock.prototype.tick = function (ms) {};
@@ -211,7 +251,10 @@ jasmineExtern.MatchersUtil.prototype.equals = function (a, b, opt_customTesters)
 jasmineExtern.MatchersUtil.prototype.contains = function (haystack, needle, opt_customTesters) {};
 jasmineExtern.MatchersUtil.prototype.buildFailureMessage = function (matcherName, isNot, actual, expected) {};
 
-jasmineExtern.Env;
+/**
+ * @interface
+ */
+jasmineExtern.Env = function () {};
 jasmineExtern.Env.prototype.setTimeout;
 jasmineExtern.Env.prototype.clearTimeout;
 jasmineExtern.Env.prototype.setInterval;
@@ -464,6 +507,10 @@ jasmine.Suite.prototype.execute = function (opt_onComplete) {};
 jasmineExtern.XSuite;
 jasmineExtern.XSuite.prototype.execute = function () {};
 
+/**
+ * @interface
+ * @extends {Function}
+ */
 jasmineExtern.Spy = function () {};
 jasmineExtern.Spy.prototype.identity;
 jasmineExtern.Spy.prototype.and;
