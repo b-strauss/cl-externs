@@ -198,58 +198,215 @@ jasmine.pp = function (value) {};
  */
 jasmine.getEnv = function () {};
 
+/**
+ * @param {jasmineExtern.CustomEqualityTester} equalityTester
+ * @returns {void}
+ */
 jasmine.addCustomEqualityTester = function (equalityTester) {};
 
+/**
+ * @param {jasmineExtern.CustomMatcherFactories} matchers
+ * @returns {void}
+ */
 jasmine.addMatchers = function (matchers) {};
 
+/**
+ * @param {string|RegExp} str
+ * @returns {jasmine.Any}
+ */
 jasmine.stringMatching = function (str) {};
 
+/**
+ * @param {string} domain
+ * @param {string} usage
+ * @returns {function(string):string}
+ */
 jasmine.formatErrorMsg = function (domain, usage) {};
 
+/**
+ * @param {*} expectedClass
+ * @constructor
+ */
 jasmine.Any = function (expectedClass) {};
+
+/**
+ * @param {*} other
+ * @returns {boolean}
+ */
 jasmine.Any.prototype.jasmineMatches = function (other) {};
+
+/**
+ * @returns {string}
+ */
 jasmine.Any.prototype.jasmineToString = function () {};
 
+/**
+ * @param {Array<*>} sample
+ * @constructor
+ */
 jasmine.ArrayContaining = function (sample) {};
+
+/**
+ * @param {*} other
+ * @returns {boolean}
+ */
 jasmine.ArrayContaining.prototype.asymmetricMatch = function (other) {};
+
+/**
+ * @returns {string}
+ */
 jasmine.ArrayContaining.prototype.jasmineToString = function () {};
 
+/**
+ * @param {*} sample
+ * @constructor
+ */
 jasmine.ObjectContaining = function (sample) {};
+
+/**
+ * @param {*} other
+ * @param {Array<*>} mismatchKeys
+ * @param {Array<*>} mismatchValues
+ * @returns {boolean}
+ */
 jasmine.ObjectContaining.prototype.jasmineMatches = function (other, mismatchKeys, mismatchValues) {};
+
+/**
+ * @returns {string}
+ */
 jasmine.ObjectContaining.prototype.jasmineToString = function () {};
 
+/**
+ * @param {jasmineExtern.Env} env
+ * @param {jasmineExtern.SpecFunction} func
+ * @param {jasmine.Spec} spec
+ * @constructor
+ */
 jasmine.Block = function (env, func, spec) {};
+
+/**
+ * @param {function():void} onComplete
+ * @returns {void}
+ */
 jasmine.Block.prototype.execute = function (onComplete) {};
 
+/**
+ * @param {jasmineExtern.Env} env
+ * @param {number} timeout
+ * @param {jasmine.Spec} spec
+ * @constructor
+ * @extends {jasmine.Block}
+ */
 jasmine.WaitsBlock = function (env, timeout, spec) {};
 
+/**
+ * @param {jasmineExtern.Env} env
+ * @param {number} timeout
+ * @param {jasmineExtern.SpecFunction} latchFunction
+ * @param {string} message
+ * @param {jasmine.Spec} spec
+ * @constructor
+ * @extends {jasmine.Block}
+ */
 jasmine.WaitsForBlock = function (env, timeout, latchFunction, message, spec) {};
 
 /**
  * @interface
  */
 jasmineExtern.Clock = function () {};
+
+/**
+ * @returns {void}
+ */
 jasmineExtern.Clock.prototype.install = function () {};
+
+/**
+ * @returns {void}
+ */
 jasmineExtern.Clock.prototype.uninstall = function () {};
+
+/**
+ * @param {number} ms
+ * @returns {void}
+ */
 jasmineExtern.Clock.prototype.tick = function (ms) {};
+
+/**
+ * @param {Date=} opt_date
+ * @returns {void}
+ */
 jasmineExtern.Clock.prototype.mockDate = function (opt_date) {};
+
+/**
+ * @param {function():void} func
+ * @returns {void}
+ */
 jasmineExtern.Clock.prototype.withMock = function (func) {};
 
+/**
+ * @typedef {function(*, *):boolean}
+ */
 jasmineExtern.CustomEqualityTester;
 
+/**
+ * @interface
+ */
 jasmineExtern.CustomMatcher;
+
+/**
+ * @param {*} actual
+ * @param {*} expected
+ * @returns {jasmineExtern.CustomMatcherResult}
+ */
 jasmineExtern.CustomMatcher.prototype.compare = function (actual, expected) {};
 
+/**
+ * @typedef {function(jasmineExtern.MatchersUtil, Array<jasmineExtern.CustomEqualityTester>):jasmineExtern.CustomMatcher}
+ */
 jasmineExtern.CustomMatcherFactory;
 
+/**
+ * @typedef {IObject<string, jasmineExtern.CustomMatcherFactory>}
+ */
 jasmineExtern.CustomMatcherFactories;
 
+/**
+ * @typedef {{
+ *   pass: boolean,
+ *   message: (string|undefined)
+ * }}
+ */
 jasmineExtern.CustomMatcherResult;
 
+/**
+ * @interface
+ */
 jasmineExtern.MatchersUtil;
+
+/**
+ * @param {*} a
+ * @param {*} b
+ * @param {Array<jasmineExtern.CustomEqualityTester>=} opt_customTesters
+ * @returns {boolean}
+ */
 jasmineExtern.MatchersUtil.prototype.equals = function (a, b, opt_customTesters) {};
+
+/**
+ * @param {IArrayLike<*>|string} haystack
+ * @param {*} needle
+ * @param {Array<jasmineExtern.CustomEqualityTester>=} opt_customTesters
+ * @returns {boolean}
+ */
 jasmineExtern.MatchersUtil.prototype.contains = function (haystack, needle, opt_customTesters) {};
-jasmineExtern.MatchersUtil.prototype.buildFailureMessage = function (matcherName, isNot, actual, expected) {};
+
+/**
+ * @param {string} matcherName
+ * @param {boolean} isNot
+ * @param {*} actual
+ * @param {...*} expected_args
+ * @returns {string}
+ */
+jasmineExtern.MatchersUtil.prototype.buildFailureMessage = function (matcherName, isNot, actual, expected_args) {};
 
 /**
  * @interface
@@ -451,6 +608,9 @@ jasmine.Runner.prototype.suites = function () {};
 jasmine.Runner.prototype.topLevelSuites = function () {};
 jasmine.Runner.prototype.results = function () {};
 
+/**
+ * @typedef {function(jasmine.Spec=):void}
+ */
 jasmineExtern.SpecFunction;
 
 jasmineExtern.SuiteOrSpec;
