@@ -412,93 +412,451 @@ jasmineExtern.MatchersUtil.prototype.buildFailureMessage = function (matcherName
  * @interface
  */
 jasmineExtern.Env = function () {};
+
+/**
+ * @type {*}
+ */
 jasmineExtern.Env.prototype.setTimeout;
+
+/**
+ * @type {*}
+ */
 jasmineExtern.Env.prototype.clearTimeout;
+
+/**
+ * @type {*}
+ */
 jasmineExtern.Env.prototype.setInterval;
+
+/**
+ * @type {*}
+ */
 jasmineExtern.Env.prototype.clearInterval;
+
+/**
+ * @type {number}
+ */
 jasmineExtern.Env.prototype.updateInterval;
+
+/**
+ * @type {jasmine.Spec}
+ */
 jasmineExtern.Env.prototype.currentSpec;
+
+/**
+ * @type {jasmine.Matchers}
+ */
 jasmineExtern.Env.prototype.matchersClass;
+
+/**
+ * @returns {*}
+ */
 jasmineExtern.Env.prototype.version = function () {};
+
+/**
+ * @returns {string}
+ */
 jasmineExtern.Env.prototype.versionString = function () {};
+
+/**
+ * @returns {number}
+ */
 jasmineExtern.Env.prototype.nextSpecId = function () {};
+
+/**
+ * @param {jasmineExtern.Reporter|jasmineExtern.CustomReporter} reporter
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.addReporter = function (reporter) {};
+
+/**
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.execute = function () {};
+
+/**
+ * @param {string} description
+ * @param {function():void} specDefinitions
+ * @returns {jasmine.Suite}
+ */
 jasmineExtern.Env.prototype.describe = function (description, specDefinitions) {};
+
+/**
+ * @param {function():void} beforeEachFunction
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.beforeEach = function (beforeEachFunction) {};
+
+/**
+ * @param {function():void} beforeAllFunction
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.beforeAll = function (beforeAllFunction) {};
+
+/**
+ * @returns {jasmine.Runner}
+ */
 jasmineExtern.Env.prototype.currentRunner = function () {};
+
+/**
+ * @param {function():void} afterEachFunction
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.afterEach = function (afterEachFunction) {};
+
+/**
+ * @param {function():void} afterAllFunction
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.afterAll = function (afterAllFunction) {};
+
+/**
+ * @param {string} description
+ * @param {function():void} specDefinitions
+ * @returns {jasmineExtern.XSuite}
+ */
 jasmineExtern.Env.prototype.xdescribe = function (description, specDefinitions) {};
+
+/**
+ * @param {string} description
+ * @param {function():void} func
+ * @returns {jasmine.Spec}
+ */
 jasmineExtern.Env.prototype.it = function (description, func) {};
+
+/**
+ * @param {string} description
+ * @param {function():void} func
+ * @returns {jasmineExtern.XSpec}
+ */
 jasmineExtern.Env.prototype.xit = function (description, func) {};
+
+/**
+ * @param {RegExp} a
+ * @param {RegExp} b
+ * @param {Array<string>} mismatchKeys
+ * @param {Array<string>} mismatchValues
+ * @private
+ * @returns {boolean}
+ */
 jasmineExtern.Env.prototype.compareRegExps_ = function (a, b, mismatchKeys, mismatchValues) {};
+
+/**
+ * @param {*} a
+ * @param {*} b
+ * @param {Array<string>} mismatchKeys
+ * @param {Array<string>} mismatchValues
+ * @private
+ * @returns {boolean}
+ */
 jasmineExtern.Env.prototype.compareObjects_ = function (a, b, mismatchKeys, mismatchValues) {};
+
+/**
+ * @param {*} a
+ * @param {*} b
+ * @param {Array<string>} mismatchKeys
+ * @param {Array<string>} mismatchValues
+ * @private
+ * @returns {boolean}
+ */
 jasmineExtern.Env.prototype.equals_ = function (a, b, mismatchKeys, mismatchValues) {};
+
+/**
+ * @param {*} haystack
+ * @param {*} needle
+ * @private
+ * @returns {boolean}
+ */
 jasmineExtern.Env.prototype.contains_ = function (haystack, needle) {};
+
+/**
+ * @param {jasmineExtern.CustomEqualityTester} equalityTester
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.addCustomEqualityTester = function (equalityTester) {};
+
+/**
+ * @param {jasmineExtern.CustomMatcherFactories} matchers
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.addMatchers = function (matchers) {};
+
+/**
+ * @param {jasmine.Spec} spec
+ * @returns {boolean}
+ */
 jasmineExtern.Env.prototype.specFilter = function (spec) {};
+
+/**
+ * @param {boolean} value
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.throwOnExpectationFailure = function (value) {};
+
+/**
+ * @param {string|number} seed
+ * @returns {string|number}
+ */
 jasmineExtern.Env.prototype.seed = function (seed) {};
+
+/**
+ * @param {jasmineExtern.Reporter} reporter
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.provideFallbackReporter = function (reporter) {};
+
+/**
+ * @returns {boolean}
+ */
 jasmineExtern.Env.prototype.throwingExpectationFailures = function () {};
+
+/**
+ * @param {boolean} allow
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.allowRespy = function (allow) {};
+
+/**
+ * @returns {boolean}
+ */
 jasmineExtern.Env.prototype.randomTests = function () {};
+
+/**
+ * @param {boolean} b
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.randomizeTests = function (b) {};
+
+/**
+ * @returns {void}
+ */
 jasmineExtern.Env.prototype.clearReporters = function () {};
 
+/**
+ * @constructor
+ */
 jasmine.FakeTimer = function () {};
+
+/**
+ * @returns {void}
+ */
 jasmine.FakeTimer.prototype.reset = function () {};
+
+/**
+ * @param {number} millis
+ * @returns {void}
+ */
 jasmine.FakeTimer.prototype.tick = function (millis) {};
+
+/**
+ * @param {number} oldMillis
+ * @param {number} nowMillis
+ * @returns {void}
+ */
 jasmine.FakeTimer.prototype.runFunctionsWithinRange = function (oldMillis, nowMillis) {};
+
+/**
+ * @param {*} timeoutKey
+ * @param {function():void} funcToCall
+ * @param {number} millis
+ * @param {boolean} recurring
+ * @returns {void}
+ */
 jasmine.FakeTimer.prototype.scheduleFunction = function (timeoutKey, funcToCall, millis, recurring) {};
 
+/**
+ * @constructor
+ */
 jasmine.HtmlReporter = function () {};
 
+/**
+ * @constructor
+ */
 jasmine.HtmlSpecFilter = function () {};
 
+/**
+ * @interface
+ */
 jasmineExtern.Result = function () {};
+
+/**
+ * @type {string}
+ */
 jasmineExtern.Result.prototype.type;
 
+/**
+ * @interface
+ * @extends {jasmineExtern.Result}
+ */
 jasmineExtern.NestedResults = function () {};
+
+/**
+ * @type {string}
+ */
 jasmineExtern.NestedResults.prototype.description;
+
+/**
+ * @type {number}
+ */
 jasmineExtern.NestedResults.prototype.totalCount;
+
+/**
+ * @type {number}
+ */
 jasmineExtern.NestedResults.prototype.passedCount;
+
+/**
+ * @type {number}
+ */
 jasmineExtern.NestedResults.prototype.failedCount;
+
+/**
+ * @type {boolean}
+ */
 jasmineExtern.NestedResults.prototype.skipped;
+
+/**
+ * @param {jasmineExtern.NestedResults} result
+ * @returns {void}
+ */
 jasmineExtern.NestedResults.prototype.rollupCounts = function (result) {};
+
+/**
+ * @param {*} values
+ * @returns {void}
+ */
 jasmineExtern.NestedResults.prototype.log = function (values) {};
+
+/**
+ * @returns {Array<jasmineExtern.Result>}
+ */
 jasmineExtern.NestedResults.prototype.getItems = function () {};
+
+/**
+ * @param {jasmineExtern.Result} result
+ * @returns {void}
+ */
 jasmineExtern.NestedResults.prototype.addResult = function (result) {};
+
+/**
+ * @returns {boolean}
+ */
 jasmineExtern.NestedResults.prototype.passed = function () {};
 
+/**
+ * @interface
+ * @extends {jasmineExtern.Result}
+ */
 jasmineExtern.MessageResult = function () {};
+
+/**
+ * @type {*}
+ */
 jasmineExtern.MessageResult.prototype.values;
+
+/**
+ * @type {jasmineExtern.Trace}
+ */
 jasmineExtern.MessageResult.prototype.trace;
 
+/**
+ * @interface
+ * @extends {jasmineExtern.Result}
+ */
 jasmineExtern.ExpectationResult = function () {};
+
+/**
+ * @type {string}
+ */
 jasmineExtern.ExpectationResult.prototype.matcherName;
+
+/**
+ * @returns {boolean}
+ */
 jasmineExtern.ExpectationResult.prototype.passed = function () {};
+
+/**
+ * @type {*}
+ */
 jasmineExtern.ExpectationResult.prototype.expected;
+
+/**
+ * @type {*}
+ */
 jasmineExtern.ExpectationResult.prototype.actual;
+
+/**
+ * @type {string}
+ */
 jasmineExtern.ExpectationResult.prototype.message;
+
+/**
+ * @type {jasmineExtern.Trace}
+ */
 jasmineExtern.ExpectationResult.prototype.trace;
 
+/**
+ * @param {{random: boolean, seed: string}} options
+ * @constructor
+ */
 jasmine.Order = function (options) {};
+
+/**
+ * @type {boolean}
+ */
 jasmine.Order.prototype.random;
+
+/**
+ * @type {string}
+ */
 jasmine.Order.prototype.seed;
+
+/**
+ * @param {Array} items
+ * @returns {Array}
+ */
 jasmine.Order.prototype.sort = function (items) {};
 
+/**
+ * @const
+ */
 jasmine.errors = {};
+
+/**
+ * @constructor
+ * @extends {Error}
+ */
 jasmine.errors.ExpectationFailed = function () {};
+
+/**
+ * @type {*}
+ */
 jasmine.errors.ExpectationFailed.prototype.stack;
 
+/**
+ * @param {*} attrs
+ * @constructor
+ */
 jasmine.TreeProcessor = function (attrs) {};
+
+/**
+ * @param {Function} done
+ * @returns {void}
+ */
 jasmine.TreeProcessor.prototype.execute = function (done) {};
+
+/**
+ * @returns {*}
+ */
 jasmine.TreeProcessor.prototype.processTree = function () {};
 
+/**
+ * @typedef {{
+ *   name: string,
+ *   message: string,
+ *   stack: *
+ * }}
+ */
 jasmineExtern.Trace;
 
 jasmine.PrettyPrinter = function () {};
