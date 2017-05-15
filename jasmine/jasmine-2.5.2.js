@@ -859,15 +859,58 @@ jasmine.TreeProcessor.prototype.processTree = function () {};
  */
 jasmineExtern.Trace;
 
+/**
+ * @constructor
+ */
 jasmine.PrettyPrinter = function () {};
+
+/**
+ * @param {*} value
+ * @returns {void}
+ */
 jasmine.PrettyPrinter.prototype.format = function (value) {};
+
+/**
+ * @param {*} obj
+ * @param {function(string, boolean):void} fn
+ * @returns {void}
+ */
 jasmine.PrettyPrinter.prototype.iterateObject = function (obj, fn) {};
+
+/**
+ * @param {*} value
+ * @returns {void}
+ */
 jasmine.PrettyPrinter.prototype.emitScalar = function (value) {};
+
+/**
+ * @param {string} value
+ * @returns {void}
+ */
 jasmine.PrettyPrinter.prototype.emitString = function (value) {};
+
+/**
+ * @param {Array} array
+ * @returns {void}
+ */
 jasmine.PrettyPrinter.prototype.emitArray = function (array) {};
+
+/**
+ * @param {*} obj
+ * @returns {void}
+ */
 jasmine.PrettyPrinter.prototype.emitObject = function (obj) {};
+
+/**
+ * @param {string} value
+ * @returns {void}
+ */
 jasmine.PrettyPrinter.prototype.append = function (value) {};
 
+/**
+ * @constructor
+ * @extends {jasmine.PrettyPrinter}
+ */
 jasmine.StringPrettyPrinter = function () {};
 
 jasmine.Queue = function (env) {};
