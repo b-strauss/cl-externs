@@ -913,49 +913,261 @@ jasmine.PrettyPrinter.prototype.append = function (value) {};
  */
 jasmine.StringPrettyPrinter = function () {};
 
+/**
+ * @param {*} env
+ * @constructor
+ */
 jasmine.Queue = function (env) {};
+
+/**
+ * @type {jasmineExtern.Env}
+ */
 jasmine.Queue.prototype.env;
+
+/**
+ * @type {Array<boolean>}
+ */
 jasmine.Queue.prototype.ensured;
+
+/**
+ * @type {Array<jasmine.Block>}
+ */
 jasmine.Queue.prototype.blocks;
+
+/**
+ * @type {boolean}
+ */
 jasmine.Queue.prototype.running;
+
+/**
+ * @type {number}
+ */
 jasmine.Queue.prototype.index;
+
+/**
+ * @type {number}
+ */
 jasmine.Queue.prototype.offset;
+
+/**
+ * @type {boolean}
+ */
 jasmine.Queue.prototype.abort;
+
+/**
+ * @param {jasmine.Block} block
+ * @param {boolean=} opt_ensure
+ * @returns {void}
+ */
 jasmine.Queue.prototype.addBefore = function (block, opt_ensure) {};
+
+/**
+ * @param {*} block
+ * @param {boolean=} opt_ensure
+ * @returns {void}
+ */
 jasmine.Queue.prototype.add = function (block, opt_ensure) {};
+
+/**
+ * @param {*} block
+ * @param {boolean=} opt_ensure
+ * @returns {void}
+ */
 jasmine.Queue.prototype.insertNext = function (block, opt_ensure) {};
+
+/**
+ * @param {(function():void)=} opt_onComplete
+ * @returns {void}
+ */
 jasmine.Queue.prototype.start = function (opt_onComplete) {};
+
+/**
+ * @returns {boolean}
+ */
 jasmine.Queue.prototype.isRunning = function () {};
+
+/**
+ * @private
+ * @returns {void}
+ */
 jasmine.Queue.prototype.next_ = function () {};
+
+/**
+ * @returns {jasmineExtern.NestedResults}
+ */
 jasmine.Queue.prototype.results = function () {};
 
+/**
+ * @param {jasmineExtern.Env} env
+ * @param {*} actual
+ * @param {jasmineExtern.Env} spec
+ * @param {boolean=} opt_isNot
+ * @constructor
+ */
 jasmine.Matchers = function (env, actual, spec, opt_isNot) {};
+
+/**
+ * @type {jasmineExtern.Env}
+ */
 jasmine.Matchers.prototype.env;
+
+/**
+ * @type {*}
+ */
 jasmine.Matchers.prototype.actual;
+
+/**
+ * @type {jasmineExtern.Env}
+ */
 jasmine.Matchers.prototype.spec;
+
+/**
+ * @type {boolean|undefined}
+ */
 jasmine.Matchers.prototype.isNot;
+
+/**
+ * @type {jasmine.Matchers}
+ */
 jasmine.Matchers.prototype.not;
+
+/**
+ * @type {jasmine.Any}
+ */
 jasmine.Matchers.prototype.Any;
+
+/**
+ * @returns {*}
+ */
 jasmine.Matchers.prototype.message = function () {};
+
+/**
+ * @param {*} expected
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toBe = function (expected, opt_expectationFailOutput) {};
+
+/**
+ * @param {*} expected
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toEqual = function (expected, opt_expectationFailOutput) {};
+
+/**
+ * @param {string|RegExp} expected
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toMatch = function (expected, opt_expectationFailOutput) {};
+
+/**
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toBeDefined = function (opt_expectationFailOutput) {};
+
+/**
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toBeUndefined = function (opt_expectationFailOutput) {};
+
+/**
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toBeNull = function (opt_expectationFailOutput) {};
+
+/**
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toBeNaN = function () {};
+
+/**
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toBeTruthy = function (opt_expectationFailOutput) {};
+
+/**
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toBeFalsy = function (opt_expectationFailOutput) {};
+
+/**
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toHaveBeenCalled = function () {};
-jasmine.Matchers.prototype.toHaveBeenCalledWith = function (params) {};
+
+/**
+ * @param {...*} args_params
+ * @returns {boolean}
+ */
+jasmine.Matchers.prototype.toHaveBeenCalledWith = function (args_params) {};
+
+/**
+ * @param {number} expected
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toHaveBeenCalledTimes = function (expected) {};
+
+/**
+ * @param {*} expected
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toContain = function (expected, opt_expectationFailOutput) {};
+
+/**
+ * @param {number} expected
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toBeLessThan = function (expected, opt_expectationFailOutput) {};
+
+/**
+ * @param {number} expected
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toBeLessThanOrEqual = function (expected, opt_expectationFailOutput) {};
+
+/**
+ * @param {number} expected
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toBeGreaterThan = function (expected, opt_expectationFailOutput) {};
+
+/**
+ * @param {number} expected
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toBeGreaterThanOrEqual = function (expected, opt_expectationFailOutput) {};
+
+/**
+ * @param {number} expected
+ * @param {*=} opt_precision
+ * @param {*=} opt_expectationFailOutput
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toBeCloseTo = function (expected, opt_precision, opt_expectationFailOutput) {};
+
+/**
+ * @param {*} expected
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toThrow = function (expected) {};
+
+/**
+ * @param {function(new:Error)} opt_expected
+ * @param {(string|RegExp)} opt_message
+ * @returns {boolean}
+ */
 jasmine.Matchers.prototype.toThrowError = function (opt_expected, opt_message) {};
 
 jasmine.ArrayLikeMatchers = function (env, actual, spec, opt_isNot) {};
