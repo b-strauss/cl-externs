@@ -1170,55 +1170,216 @@ jasmine.Matchers.prototype.toThrow = function (expected) {};
  */
 jasmine.Matchers.prototype.toThrowError = function (opt_expected, opt_message) {};
 
-jasmine.ArrayLikeMatchers = function (env, actual, spec, opt_isNot) {};
-jasmine.ArrayLikeMatchers.prototype.not;
-jasmine.ArrayLikeMatchers.prototype.toBe = function (expected, opt_expectationFailOutput) {};
-jasmine.ArrayLikeMatchers.prototype.toEqual = function (expected, opt_expectationFailOutput) {};
-jasmine.ArrayLikeMatchers.prototype.toContain = function (expected, opt_expectationFailOutput) {};
-
+/**
+ * @interface
+ */
 jasmineExtern.Reporter = function () {};
+
+/**
+ * @param {jasmine.Runner} runner
+ * @returns {void}
+ */
 jasmineExtern.Reporter.prototype.reportRunnerStarting = function (runner) {};
+
+/**
+ * @param {jasmine.Runner} runner
+ * @returns {void}
+ */
 jasmineExtern.Reporter.prototype.reportRunnerResults = function (runner) {};
+
+/**
+ * @param {jasmine.Suite} suite
+ * @returns {void}
+ */
 jasmineExtern.Reporter.prototype.reportSuiteResults = function (suite) {};
+
+/**
+ * @param {jasmine.Spec} spec
+ * @returns {void}
+ */
 jasmineExtern.Reporter.prototype.reportSpecStarting = function (spec) {};
+
+/**
+ * @param {jasmine.Spec} spec
+ * @returns {void}
+ */
 jasmineExtern.Reporter.prototype.reportSpecResults = function (spec) {};
+
+/**
+ * @param {string} str
+ * @returns {void}
+ */
 jasmineExtern.Reporter.prototype.log = function (str) {};
 
+/**
+ * @interface
+ * @extends {jasmineExtern.Reporter}
+ */
 jasmineExtern.MultiReporter = function () {};
+
+/**
+ * @param {jasmineExtern.Reporter} reporter
+ * @returns {void}
+ */
 jasmineExtern.MultiReporter.prototype.addReporter = function (reporter) {};
 
+/**
+ * @typedef {{
+ *   totalSpecsDefined: number
+ * }}
+ */
 jasmineExtern.SuiteInfo;
 
+/**
+ * @interface
+ */
 jasmineExtern.CustomReportExpectation = function () {};
+
+/**
+ * @type {string}
+ */
 jasmineExtern.CustomReportExpectation.prototype.matcherName;
+
+/**
+ * @type {string}
+ */
 jasmineExtern.CustomReportExpectation.prototype.message;
+
+/**
+ * @type {boolean}
+ */
 jasmineExtern.CustomReportExpectation.prototype.passed;
+
+/**
+ * @type {string}
+ */
 jasmineExtern.CustomReportExpectation.prototype.stack;
 
+/**
+ * @interface
+ * @extends {jasmineExtern.CustomReportExpectation}
+ */
 jasmineExtern.FailedExpectation = function () {};
+
+/**
+ * @type {string}
+ */
 jasmineExtern.FailedExpectation.prototype.actual;
+
+/**
+ * @type {string}
+ */
 jasmineExtern.FailedExpectation.prototype.expected;
 
+/**
+ * @interface
+ * @extends {jasmineExtern.CustomReportExpectation}
+ */
 jasmineExtern.PassedExpectation = function () {};
 
+/**
+ * @typedef {{
+ *   description: string,
+ *   failedExpectations: (undefined|Array<jasmineExtern.FailedExpectation>),
+ *   fullName: string,
+ *   id: string,
+ *   passedExpectations: (undefined|Array<jasmineExtern.PassedExpectation>),
+ *   pendingReason: (undefined|string),
+ *   status: (undefined|string)
+ * }}
+ */
 jasmineExtern.CustomReporterResult;
 
+/**
+ * @typedef {{
+ *   failedExpectations: Array<jasmineExtern.FailedExpectation>,
+ *   order: jasmine.Order
+ * }}
+ */
 jasmineExtern.RunDetails;
 
+/**
+ * @typedef {{
+ *   jasmineStarted: (undefined|function(jasmineExtern.SuiteInfo):void),
+ *   suiteStarted: (undefined|function(jasmineExtern.CustomReporterResult):void),
+ *   specStarted: (undefined|function(jasmineExtern.CustomReporterResult):void),
+ *   specDone: (undefined|function(jasmineExtern.CustomReporterResult):void),
+ *   suiteDone: (undefined|function(jasmineExtern.CustomReporterResult):void),
+ *   jasmineDone: (undefined|function(jasmineExtern.RunDetails):void)
+ * }}
+ */
 jasmineExtern.CustomReporter;
 
+/**
+ * @param {jasmineExtern.Env} env
+ * @constructor
+ */
 jasmine.Runner = function (env) {};
+
+/**
+ * @returns {void}
+ */
 jasmine.Runner.prototype.execute = function () {};
+
+/**
+ * @param {jasmineExtern.SpecFunction} beforeEachFunction
+ * @returns {void}
+ */
 jasmine.Runner.prototype.beforeEach = function (beforeEachFunction) {};
+
+/**
+ * @param {jasmineExtern.SpecFunction} afterEachFunction
+ * @returns {void}
+ */
 jasmine.Runner.prototype.afterEach = function (afterEachFunction) {};
+
+/**
+ * @param {jasmineExtern.SpecFunction} beforeAllFunction
+ * @returns {void}
+ */
 jasmine.Runner.prototype.beforeAll = function (beforeAllFunction) {};
+
+/**
+ * @param {jasmineExtern.SpecFunction} afterAllFunction
+ * @returns {void}
+ */
 jasmine.Runner.prototype.afterAll = function (afterAllFunction) {};
+
+/**
+ * @returns {void}
+ */
 jasmine.Runner.prototype.finishCallback = function () {};
+
+/**
+ * @param {jasmine.Suite} suite
+ * @returns {void}
+ */
 jasmine.Runner.prototype.addSuite = function (suite) {};
+
+/**
+ * @param {jasmine.Block} block
+ * @returns {void}
+ */
 jasmine.Runner.prototype.add = function (block) {};
+
+/**
+ * @returns {Array<jasmine.Spec>}
+ */
 jasmine.Runner.prototype.specs = function () {};
+
+/**
+ * @returns {Array<jasmine.Suite>}
+ */
 jasmine.Runner.prototype.suites = function () {};
+
+/**
+ * @returns {Array<jasmine.Suite>}
+ */
 jasmine.Runner.prototype.topLevelSuites = function () {};
+
+/**
+ * @returns {jasmineExtern.NestedResults}
+ */
 jasmine.Runner.prototype.results = function () {};
 
 /**
@@ -1226,6 +1387,14 @@ jasmine.Runner.prototype.results = function () {};
  */
 jasmineExtern.SpecFunction;
 
+/**
+ * @typedef {{
+ *   id: number,
+ *   env: jasmineExtern.Env,
+ *   description: string,
+ *   queue: jasmine.Queue
+ * }}
+ */
 jasmineExtern.SuiteOrSpec;
 
 jasmine.Spec = function (env, suite, description) {};
@@ -1237,7 +1406,7 @@ jasmine.Spec.prototype.matchersClass;
 jasmine.Spec.prototype.throwOnExpectationFailure;
 jasmine.Spec.prototype.getFullName = function () {};
 jasmine.Spec.prototype.results = function () {};
-jasmine.Spec.prototype.log = function (arguments) {};
+jasmine.Spec.prototype.log = function (args) {};
 jasmine.Spec.prototype.runs = function (func) {};
 jasmine.Spec.prototype.addToQueue = function (block) {};
 jasmine.Spec.prototype.addMatcherResult = function (result) {};
